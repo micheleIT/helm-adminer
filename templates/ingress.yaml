@@ -1,7 +1,7 @@
 ---
 {{ if .Values.ingress.enabled -}}
 {{- $fullName := include "adminer.fullname" . -}}
-{{- $ingressPath := .Values.ingress.path -}}
+{{- $ingressPath := tpl .Values.ingress.path . -}}
 apiVersion: {{ include "adminer.ingress.apiVersion" . }}
 kind: Ingress
 metadata:
